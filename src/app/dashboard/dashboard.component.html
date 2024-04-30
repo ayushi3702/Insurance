@@ -1,0 +1,36 @@
+<div class="employee-container">
+  <img src="assets/ilink-logo.jpg" alt="Company Image">
+  <div class="employee-info">
+    <h4>{{ emp.empName }}</h4>
+    <p class="employee-details">
+      <span><b>Gender:</b> {{ emp.gender }}</span>
+      <span><b>Date of Birth:</b> {{ emp.dateOfBirth }}</span>
+    </p>
+    <p class="employee-details">
+      <span><b>Employee ID:</b> {{ emp.empId }}</span>
+      <span><b>Company Name:</b> {{ emp.companyName }}</span>
+    </p>
+  </div>
+</div>
+
+<div class="policy-scroll-container">
+  <div class="policy-container" *ngFor="let policy of policies">
+    <img src="assets/insurance-policy.png" alt="Policy Information" class="policy-info-image">
+
+    <div class="policy-details">
+      <div class="policy-details-left">
+        <p><b>Insurer:</b> {{ policy.insurer }}</p>
+        <p><b>TPA:</b> {{ policy.tpa }}</p>
+        <p><b>Start Date:</b> {{ policy.startDate }}</p>
+        <p><b>End Date:</b> {{ policy.endDate }}</p>
+      </div>
+      <div class="policy-details-right">
+        <p><b>Coverage Type:</b> {{ policy.coverageType }}</p>
+        <p><b>Policy Status:</b> {{ policy.policyStatus }}</p>
+        <p><b>Beneficiary Name:</b> {{ policy.beneficiaryName }}</p>
+        <p><b>Beneficiary Relation:</b> {{ policy.beneficiaryRelation }}</p>
+      </div>
+    </div>
+    <button class="payment-button" (click)="GoTopayment()">Payment</button>
+  </div>
+</div>

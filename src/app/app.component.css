@@ -1,0 +1,113 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  /* Align items to the start and end of the navbar */
+  align-items: center;
+  /* Center items vertically */
+  background-color: #f8f9fa;
+  /* Light gray background */
+  border-bottom: 1px solid #dee2e6;
+  /* Border bottom */
+}
+
+.nav-items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  /* Brand name font size */
+}
+
+.navbar-toggler-icon {
+  border-color: #495057;
+  /* Hamburger menu color */
+}
+
+.navbar-nav .nav-link {
+  color: #495057;
+  /* Link color */
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  /* Bold font for active link */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+  /* Space between nav items */
+}
+
+/* Hamburger menu icon color on hover */
+.navbar-toggler:hover .navbar-toggler-icon {
+  border-color: #007bff;
+}
+
+.nav-item a{
+  color:black;
+}
+
+.nav-item a:hover{
+  font-weight: bold;
+}
+
+.profile-modal {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transform: translate(0);
+  /* background-color: #fff; */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  max-width: 400px;
+  background-color: #f8f9fa;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  margin: 0 auto;
+}
+
+.profile-info {
+  border-top: 1px solid #ddd;
+  /* Divider line */
+  padding: 1rem 0;
+}
+
+.profile-info p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.profile-info p i {
+  margin-right: 5px;
+  color: #ccc;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar .profile-modal {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  font-family: sans-serif;
+}
+
+.profile-modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

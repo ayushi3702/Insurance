@@ -1,0 +1,115 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-center py-3">
+        <h3>
+          Payment Details Page</h3>
+      </div>
+      <div class="payment-form-container">
+        <form (ngSubmit)="addOrUpdatePayment()" #addCardForm="ngForm">
+          <div class="mb-3">
+            <label for="bankName" class="form-label">Bank Name</label>
+            <input type="text" class="form-control" name="bankName" placeholder="Enter Bank Name"
+              #bankName="ngModel" [(ngModel)]="paymentAddData.bankName"/>
+            <div *ngIf="bankName.invalid && bankName.touched"
+              class="text-danger">
+              Bank Name is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="cardHolderName" class="form-label">Card Holder Name (All Caps)</label>
+            <input type="text" class="form-control" name="cardHolderName" placeholder="Enter Card Holder Name"
+              #cardHolderName="ngModel" [(ngModel)]="paymentAddData.cardHolderName" required pattern="^[A-Z ]+$"/>
+            <div *ngIf="cardHolderName.invalid && cardHolderName.touched"
+              class="text-danger">
+              <div *ngIf="cardHolderName.errors?.['required']">
+                Card Holder Name is required.
+              </div>
+              <div *ngIf="cardHolderName.errors?.['pattern']">
+                Card Holder Name must be in all caps.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number (16 digits)</label>
+            <input type="text" class="form-control" name="cardNumber" placeholder="Enter card number"
+              #cardNumber="ngModel" [(ngModel)]="paymentAddData.cardNumber" required pattern="^\d{16}$"/>
+            <div *ngIf="cardNumber.invalid && cardNumber.touched"
+              class="text-danger">
+              <div *ngIf="cardNumber.errors?.['required']">
+                Card number is required.
+              </div>
+              <div *ngIf="cardNumber.errors?.['pattern']">
+                Card number must be 16 digits.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="cardExpiryDate" class="form-label">Card Expiry Date (MM/YY)</label>
+            <input type="text" class="form-control" name="cardExpiryDate" placeholder="Enter card expiry date (MM/YY)"
+              #cardExpiryDate="ngModel" [(ngModel)]="paymentAddData.cardExpiryDate" required pattern="^\d{2}/\d{2}$"/>
+            <div *ngIf="cardExpiryDate.invalid && cardExpiryDate.touched"
+              class="text-danger">
+              <div *ngIf="cardExpiryDate.errors?.['required']">
+                Card expiry date is required.
+              </div>
+              <div *ngIf="cardExpiryDate.errors?.['pattern']">
+                Card expiry date must be in MM/YY format.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" name="cvv" placeholder="Enter CVV" #cvv="ngModel" [(ngModel)]="paymentAddData.cvv" required>
+            <div *ngIf="cvv.invalid && cvv.touched" class="text-danger">
+              <div *ngIf="cvv.errors?.['required']">
+                CVV is required.
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">{{ isEditing ? "Save" : "Submit" }}</button>
+          <button type="button" class="btn btn-secondary" (click)="clearForm()" style="margin-left: 5px;">Clear</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-6 mt-4">
+      <div class="payment-table-container">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Payment ID</th>
+              <th scope="col">Bank Name</th>
+              <th scope="col">Card Owner Name</th>
+              <th scope="col">Card Number</th>
+              <th scope="col">Card Expiry Date</th>
+              <th scope="col">Card CVV</th>
+              <th scope="col" style="width: 140px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let payment of paymentData">
+              <tr *ngFor="let pay of payment">
+                <td>{{ pay.paymentId }}</td>
+                <td>{{ pay.bankName }}</td>
+                <td>{{ pay.cardHolderName }}</td>
+                <td>{{ pay.cardNumber }}</td>
+                <td>{{ pay.cardExpiryDate }}</td>
+                <td>{{ pay.cvv }}</td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-primary me-2" (click)="editPayment(pay)"
+                    style="margin-right: 5px;">
+                    Edit
+                  </button>
+                  <button type="button" class="btn btn-sm btn-danger" (click)="confirmDeletePayment(pay.paymentId)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

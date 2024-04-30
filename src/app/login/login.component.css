@@ -1,0 +1,113 @@
+/* Container */
+.containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  width: 100%;
+  /* border: 1px solid red; */
+  margin:auto;
+}
+
+/* Image Container */
+.image-container {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 120px;
+}
+
+.image-container .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Form Container */
+.form-container {
+  flex: 1;
+  max-width: 350px;
+  margin: 0 20px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Labels and Input Fields */
+.form-container label,
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+/* Input Styling */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Button */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+  width: 50%;
+  margin-top: 15px;
+  margin-left: 27%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Error Messages */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* Loading State */
+.loading button {
+  background-color: #ccc;
+  cursor: wait;
+}

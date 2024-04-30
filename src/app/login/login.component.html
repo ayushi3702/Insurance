@@ -1,0 +1,26 @@
+<div class="containers">
+  <div class="image-container">
+    <img src="assets/login-page-img.png" alt="Background Image">
+  </div>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form #ngForm="ngForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter Email Address" [(ngModel)]="form.email"
+          #email="ngModel" required>
+      </div>
+      <div style="font-size: 12px; color: red;" *ngIf="email.invalid && (email.touched || email.dirty)">Email field must
+        be valid</div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" [(ngModel)]="form.password"
+          #password="ngModel" required>
+      </div>
+      <div style="font-size: 12px; color: red;" *ngIf="password.invalid && (password.touched || password.dirty)">
+        Password field must be valid</div>
+      <button type="submit" [disabled]="ngForm.form.invalid">Login
+</button>
+    </form>
+  </div>
+</div>
